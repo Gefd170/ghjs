@@ -9,19 +9,12 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #8B0000, #2F1B1B);
       color: white;
-      height: 100vh;
-      text-align: center;
-    }
-    section {
-      display: none;
-      height: 100%;
-      width: 100%;
-    }
-    section.active {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      text-align: center;
     }
     h1 {
       font-size: 2.5em;
@@ -46,75 +39,26 @@
       bottom: 20px;
       font-size: 0.9em;
       color: #dddddd;
+      text-align: center;
     }
     .privacy-container a {
       color: #66aaff;
       text-decoration: none;
+      font-size: 0.9em;
     }
     .privacy-container a:hover {
       text-decoration: underline;
     }
-    #mapContainer {
-      width: 100%;
-      height: 100%;
-    }
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
   </style>
-  <script src="https://cesium.com/downloads/cesiumjs/releases/1.110/Build/Cesium/Cesium.js"></script>
-  <link href="https://cesium.com/downloads/cesiumjs/releases/1.110/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
 </head>
 <body>
+  <h1>Search for any place or landmark in the world,<br>and we’ll show it to you with information about it.</h1>
 
-  <!-- الصفحة الترحيبية -->
-  <section id="home" class="active">
-    <h1>Search for any place or landmark in the world,<br>and we’ll show it to you with information about it.</h1>
-    <button onclick="showSection('map')">Let's Start</button>
-    <div class="privacy-container">
-      <a href="#" onclick="showSection('privacy')">Privacy Policy</a>
-    </div>
-  </section>
+  <button onclick="window.location.href='explorer.html'">Let's Start</button>
 
-  <!-- صفحة الخريطة -->
-  <section id="map">
-    <div id="mapContainer"></div>
-    <div class="privacy-container">
-      <a href="#" onclick="showSection('privacy')">Privacy Policy</a>
-    </div>
-  </section>
-
-  <!-- صفحة سياسة الخصوصية -->
-  <section id="privacy">
-    <h1>Privacy Policy</h1>
-    <p>
-      We use cookies to improve user experience but do not collect or store any personal information.
-      Your privacy is important to us, and we do not share data with any third party.
-    </p>
-    <button onclick="showSection('home')">Back to Home</button>
-  </section>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-
-      if (id === "map" && !window.mapLoaded) {
-        initMap();
-        window.mapLoaded = true;
-      }
-    }
-
-    function initMap() {
-      const viewer = new Cesium.Viewer("mapContainer", {
-        imageryProvider: new Cesium.IonImageryProvider({ assetId: 2 }),
-        baseLayerPicker: false
-      });
-      viewer.scene.globe.enableLighting = true;
-    }
-  </script>
+  <div class="privacy-container">
+    <a href="privacy.html" target="_blank">Privacy Policy</a><br>
+    <span>We use cookies to serve ads and do not store any other user information.</span>
+  </div>
 </body>
 </html>

@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>موقعي - الصفحة الرئيسية</title>
+  <meta charset="UTF-8" />
+  <title>World Explorer</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #8B0000, #2F1B1B);
       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-    }
-    header {
       padding: 20px;
-      background-color: rgba(0,0,0,0.3);
     }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      padding: 60px 20px;
-    }
-    .hero h1 {
+    h1 {
       font-size: 2.5em;
+      margin-bottom: 20px;
+      max-width: 800px;
     }
     button {
       background: #c0392b;
       border: none;
-      padding: 12px 25px;
-      font-size: 1em;
+      padding: 15px 30px;
+      font-size: 1.2em;
       color: white;
       border-radius: 8px;
       cursor: pointer;
@@ -42,34 +35,30 @@
     button:hover {
       background: #e74c3c;
     }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.3);
+    .ad-container {
+      margin-top: 30px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="articles.html">المقالات</a>
-      <a href="privacy.html">سياسة الخصوصية</a>
-      <a href="contact.html">تواصل معنا</a>
-    </nav>
-  </header>
+  <h1>Search for any place or landmark in the world,<br>and we’ll show it to you with information about it.</h1>
 
-  <div class="hero">
-    <h1>مرحباً بك في موقعي</h1>
-    <p>هنا ستجد مقالات ومعلومات مفيدة في مجالات متعددة.</p>
-    <button onclick="window.location.href='articles.html'">Let's Go</button>
+  <button onclick="window.location.href='articles.html'">Let's Start</button>
+
+  <!-- إعلان ADsteera -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '68727442ba611af92fe97a55dedd6d21',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/68727442ba611af92fe97a55dedd6d21/invoke.js"></script>
   </div>
 
-  <!-- هنا ضع كود إعلان Adsterra أو Propeller Ads -->
-  <!-- مثال: <script type="text/javascript" src="..."></script> -->
-
-  <footer>
-    <p>© 2025 جميع الحقوق محفوظة</p>
-  </footer>
 </body>
 </html>

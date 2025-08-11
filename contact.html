@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تواصل معنا</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #8B0000, #2F1B1B);
+      color: white;
+      padding: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background: #c0392b;
+      border: none;
+      padding: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>تواصل معنا</h1>
+  <form>
+    <input type="text" placeholder="الاسم" required>
+    <input type="email" placeholder="البريد الإلكتروني" required>
+    <textarea placeholder="رسالتك" rows="5" required></textarea>
+    <button type="submit">إرسال</button>
+  </form>
+</body>
+</html>

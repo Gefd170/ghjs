@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>المقالات</title>
+  <meta charset="UTF-8" />
+  <title>مقالاتنا</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #8B0000, #2F1B1B);
       color: white;
-      margin: 0;
-      padding: 20px;
-    }
-    a {
-      color: #FFD700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+      line-height: 1.8;
     }
     h1 {
+      color: #FFD700;
       text-align: center;
+      margin-bottom: 20px;
     }
     ul {
-      list-style: none;
+      list-style-type: none;
       padding: 0;
-      max-width: 600px;
-      margin: auto;
+      font-size: 1.2em;
     }
-    li {
-      margin: 10px 0;
-      padding: 10px;
-      background-color: rgba(0,0,0,0.3);
-      border-radius: 8px;
+    ul li {
+      margin-bottom: 15px;
+    }
+    ul li a {
+      color: #ff6b6b;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    ul li a:hover {
+      color: #ffa07a;
+      text-decoration: underline;
+    }
+    /* إعلان مركزي */
+    .ad-container {
+      margin: 20px auto;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>المقالات</h1>
+  <h1>مقالاتنا</h1>
+
+  <!-- إعلان ADsteera -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '68727442ba611af92fe97a55dedd6d21',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/68727442ba611af92fe97a55dedd6d21/invoke.js"></script>
+  </div>
+
   <ul>
-    <li><a href="article1.html">فوائد القراءة اليومية</a></li>
-    <li><a href="article2.html">أفضل طرق التعلم الذاتي</a></li>
+    <li><a href="article1.html">أهمية القراءة في تطوير الذات</a></li>
+    <li><a href="article2.html">طرق التعلم الذاتي الفعّالة</a></li>
     <li><a href="article3.html">كيف تبدأ مشروعك الصغير</a></li>
     <li><a href="article4.html">أهمية النوم للصحة</a></li>
     <li><a href="article5.html">نصائح لتوفير المال</a></li>

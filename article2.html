@@ -1,963 +1,89 @@
-# تثبيت جميع التبعيات المطلوبة
-!apt-get update
-!apt-get install -y xvfb wget unzip libvulkan1 mesa-vulkan-drivers
-!wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-!dpkg -i google-chrome-stable_current_amd64.deb || apt-get -y install -f
-!pip install selenium pyvirtualdisplay fake_useragent undetected_chromedriver numpy chromedriver_autoinstaller requests
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>أفضل طرق التعلم الذاتي</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #8B0000, #2F1B1B);
+      color: white;
+      padding: 30px 40px;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      color: #FFD700;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    blockquote {
+      border-left: 5px solid #c0392b;
+      margin: 20px 0;
+      padding-left: 15px;
+      font-style: italic;
+      color: #ffb6b6;
+      background: rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>أفضل طرق التعلم الذاتي</h1>
 
-# تحديث ChromeDriver
-!wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/139.0.7258.66/linux64/chromedriver-linux64.zip
-!unzip -o chromedriver-linux64.zip
-!mkdir -p /usr/local/bin/
-!mv chromedriver-linux64/chromedriver /usr/local/bin/
-!chmod +x /usr/local/bin/chromedriver
+  <p>في عالم سريع التغير، أصبح التعلم الذاتي ضرورة لا غنى عنها لكل من يسعى للنجاح والتطور المستمر. التعلم الذاتي يعني قدرتك على اكتساب المعرفة والمهارات بدون الاعتماد الكامل على المؤسسات التعليمية التقليدية. في هذا المقال سنتناول الطرق الفعالة التي يمكنك من خلالها تطوير نفسك بنفسك، مع نصائح عملية لتحقيق أفضل نتائج.</p>
 
-# التحقق من توافق الإصدارات
-import subprocess
-try:
-    chrome_version = subprocess.getoutput('google-chrome --version').split()[2]
-    chromedriver_version = subprocess.getoutput('chromedriver --version').split()[1]
-    print(f"✅ Chrome version: {chrome_version}")
-    print(f"✅ ChromeDriver version: {chromedriver_version}")
+  <h2>1. تحديد الأهداف بوضوح</h2>
+  <p>الخطوة الأولى في التعلم الذاتي هي معرفة ما تريد تعلمه بالضبط. تحديد أهداف واضحة ومحددة يساعدك على التركيز وعدم التشتت. على سبيل المثال، هل تريد تعلم لغة جديدة؟ أم مهارة تقنية؟ أو تطوير مهارة اجتماعية؟ ضع أهدافًا قابلة للقياس لتتمكن من تقييم تقدمك.</p>
 
-    if chrome_version.split('.')[0] != chromedriver_version.split('.')[0]:
-        raise Exception(f"إصدار Chrome ({chrome_version}) و ChromeDriver ({chromedriver_version}) غير متوافقين!")
-    else:
-        print("✅ الإصدارات متوافقة")
-except Exception as e:
-    print(f"❌ خطأ في التحقق من الإصدارات: {str(e)}")
-    raise
+  <h2>2. التخطيط والتنظيم</h2>
+  <p>بدون خطة، يصبح التعلم غير منتج. قم بإعداد جدول زمني يتضمن أوقات مخصصة للدراسة والقراءة. التنظيم يشمل أيضًا اختيار مصادر التعلم المناسبة مثل الكتب، الدورات التدريبية، أو مقاطع الفيديو التعليمية.</p>
 
-import os
-import time
-import random
-import string
-import secrets
-import threading
-import logging
-import numpy as np
-import requests
-import shutil
-import zipfile
-import json
-import socket
-import ipaddress
-import concurrent.futures
-from datetime import datetime
-from pyvirtualdisplay import Display
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, StaleElementReferenceException, InvalidSessionIdException
-from fake_useragent import UserAgent
-import chromedriver_autoinstaller
+  <h2>3. استخدام مصادر متنوعة</h2>
+  <p>لا تعتمد على مصدر واحد فقط. استخدم الكتب، المقالات، الفيديوهات، البودكاست، والمنتديات التعليمية. هذا التنوع يساعدك على فهم الموضوع من زوايا مختلفة ويجعل التعلم أكثر متعة وفعالية.</p>
 
-# تحديد مسار Chrome الثنائي
-CHROME_BINARY_PATH = "/usr/bin/google-chrome"
-CHROMEDRIVER_PATH = "/usr/local/bin/chromedriver"
+  <h2>4. تطبيق ما تعلمته عمليًا</h2>
+  <p>الممارسة هي مفتاح الاحتفاظ بالمعلومات وتحويلها إلى مهارات. حاول تنفيذ المشاريع الصغيرة أو حل المشكلات المتعلقة بما تعلمته. على سبيل المثال، إذا تعلمت البرمجة، ابدأ بكتابة برامج صغيرة.</p>
 
-# ====== إعدادات النظام المزيف لمحاكاة Windows ======
-os.environ['XDG_SESSION_TYPE'] = 'windows'
-os.environ['XDG_CURRENT_DESKTOP'] = 'Windows'
-os.environ['XDG_SESSION_DESKTOP'] = 'windows'
-os.environ['XDG_RUNTIME_DIR'] = '/tmp/runtime-root'
+  <h2>5. المراجعة الدورية</h2>
+  <p>لا تكتفي بالتعلم مرة واحدة، بل قم بمراجعة المعلومات بشكل دوري لتعزيز الذاكرة طويلة المدى. استخدم تقنيات مثل خرائط المفاهيم أو الملخصات لتسهيل المراجعة.</p>
 
-# نطاقات سكنية أمريكية شائعة (أمثلة)
-RESIDENTIAL_RANGES = [
-    ("24.0.0.0", "24.255.255.255"),   # Comcast Cable
-    ("50.0.0.0", "50.255.255.255"),   # Comcast Cable
-    ("71.0.0.0", "71.255.255.255"),   # AT&T
-    ("96.0.0.0", "96.255.255.255"),   # Charter Spectrum
-    ("98.0.0.0", "98.255.255.255"),   # AT&T
-    ("99.0.0.0", "99.255.255.255"),   # AT&T
-    ("174.0.0.0", "174.255.255.255"), # Cox Communications
-    ("184.0.0.0", "184.255.255.255")  # Rogers / Spectrum
-]
+  <h2>6. الانضمام إلى مجموعات تعلم</h2>
+  <p>التفاعل مع الآخرين يزيد من الدافعية ويتيح لك تبادل المعرفة والخبرات. ابحث عن منتديات أو مجموعات عبر الإنترنت أو في منطقتك تهتم بنفس المجال.</p>
 
-# ====================== الدوال الأساسية ======================
+  <h2>7. الاستفادة من التكنولوجيا</h2>
+  <p>هناك الكثير من التطبيقات والمنصات التي تسهل التعلم الذاتي مثل Coursera، Udemy، Khan Academy، وDuolingo. اختر ما يناسب أهدافك وابدأ التعلم بمرونة.</p>
 
-# توليد عنوان IP عشوائي من نطاق
-def random_ip_from_range(start_ip, end_ip):
-    """توليد عنوان IP عشوائي من نطاق معين"""
-    start = int(ipaddress.IPv4Address(start_ip))
-    end = int(ipaddress.IPv4Address(end_ip))
-    return str(ipaddress.IPv4Address(random.randint(start, end)))
+  <h2>8. تنمية مهارات التفكير النقدي</h2>
+  <p>لا تكتفِ بحفظ المعلومات، بل حاول تحليلها وتقييمها بشكل نقدي. اسأل نفسك لماذا وكيف ولماذا لا؟ هذا النوع من التفكير يعمق فهمك ويطور قدرتك على اتخاذ القرارات.</p>
 
-# التحقق مما إذا كان للعنوان سجل DNS
-def has_dns(ip):
-    """التحقق مما إذا كان للعنوان IP سجل DNS مرتبط"""
-    try:
-        socket.setdefaulttimeout(1)
-        socket.gethostbyaddr(ip)
-        return True
-    except:
-        return False
+  <h2>9. التغلب على التحديات</h2>
+  <p>التعلم الذاتي قد يواجه صعوبات مثل فقدان الحافز أو الإحباط من صعوبة بعض المواضيع. كن صبورًا واحتفل بتقدمك مهما كان بسيطًا. استخدم تقنيات التحفيز الذاتي مثل وضع مكافآت عند تحقيق أهداف صغيرة.</p>
 
-# دالة للبحث السريع عن عنوان IP مرتبط
-def find_linked_ip():
-    """البحث السريع عن عنوان IP مرتبط بسجل DNS باستخدام multi-threading"""
-    print("🔍 بدء البحث السريع عن عنوان IP مرتبط بسجل DNS...")
-    
-    with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
-        futures = []
-        for _ in range(500):  # إنشاء 500 مهمة بحث
-            ip_range = random.choice(RESIDENTIAL_RANGES)
-            ip = random_ip_from_range(ip_range[0], ip_range[1])
-            futures.append(executor.submit(has_dns, ip))
-        
-        for future in concurrent.futures.as_completed(futures):
-            result = future.result()
-            if result:
-                ip = future.result.args[0] if hasattr(future.result, 'args') else "IP غير معروف"
-                print(f"✅ تم العثور على عنوان مرتبط: {ip}")
-                return ip
-    
-    print("⚠️ لم يتم العثور على عنوان IP مرتبط بعد 500 محاولة")
-    return None
+  <h2>10. قياس التقدم وتعديل الخطط</h2>
+  <p>قم بتقييم تقدمك بشكل دوري. إذا وجدت أن طريقة معينة لا تناسبك، لا تتردد في تغييرها. التعلم الذاتي مرن ويعتمد عليك بشكل كبير.</p>
 
-# دالة لإنشاء كوكيز واقعية
-def generate_realistic_cookies(driver):
-    """إنشاء كوكيز واقعية للموقع الرئيسي فقط باستخدام JavaScript"""
-    main_domain = "ghjs-89e.pages.dev"
-    
-    try:
-        # الانتظار حتى يتم تحميل الصفحة
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        
-        # حقن الكوكيز عبر JavaScript (تجاوز قيود النطاق)
-        cookies_js = f"""
-        const mainDomain = ".pages.dev";
-        const cookies = [
-            {{
-                name: '_ga', 
-                value: `GA1.1.${{Math.floor(Math.random() * 10000000000) + 1000000000}}.${{Math.floor(Date.now()/1000)}}`, 
-                path: '/', 
-                domain: mainDomain,
-                expires: new Date(Date.now() + 63072000000).toUTCString()
-            }},
-            {{
-                name: 'consent', 
-                value: 'true', 
-                path: '/', 
-                domain: mainDomain,
-                expires: new Date(Date.now() + 31536000000).toUTCString()
-            }},
-            {{
-                name: 'session_id', 
-                value: Math.random().toString(36).substring(2, 18) + Math.random().toString(36).substring(2, 18), 
-                path: '/', 
-                domain: mainDomain,
-                expires: new Date(Date.now() + 1800000).toUTCString()
-            }},
-            {{
-                name: 'theme', 
-                value: ['dark','light'][Math.floor(Math.random() * 2)], 
-                path: '/', 
-                domain: mainDomain,
-                expires: new Date(Date.now() + 2592000000).toUTCString()
-            }},
-            {{
-                name: 'country', 
-                value: 'US', 
-                path: '/', 
-                domain: mainDomain,
-                expires: new Date(Date.now() + 31536000000).toUTCString()
-            }}
-        ];
-        
-        cookies.forEach(cookie => {{
-            document.cookie = `${{cookie.name}}=${{cookie.value}};path=${{cookie.path}};domain=${{cookie.domain}};expires=${{cookie.expires}};SameSite=Lax`;
-        }});
-        console.log(`🍪 تم حقن ${{cookies.length}} كوكي بنجاح`);
-        """
-        
-        driver.execute_script(cookies_js)
-        print(f"🍪 تم حقن 5 كوكي لـ {main_domain} عبر JavaScript")
-        return True
-        
-    except Exception as e:
-        print(f"⚠️ فشل في إضافة الكوكيز: {str(e)}")
-        return False
+  <h2>11. نصائح إضافية لنجاح التعلم الذاتي</h2>
+  <ul>
+    <li>احرص على بيئة هادئة ومريحة للدراسة.</li>
+    <li>استخدم تقنيات مثل تقنية بومودورو لتنظيم وقت الدراسة.</li>
+    <li>احصل على قسط كافٍ من النوم لتقوية الذاكرة.</li>
+    <li>تجنب التشتت بإيقاف الإشعارات أثناء التعلم.</li>
+    <li>لا تخف من طلب المساعدة عند الحاجة.</li>
+  </ul>
 
-# دالة محاكاة حركات الماوس البشرية
-def simulate_human_mouse_movements(driver, element=None):
-    """محاكاة حركات ماوس بشرية طبيعية مع تسارع وتذبذب"""
-    try:
-        actions = ActionChains(driver)
-        
-        # إذا لم يتم توفير عنصر، استخدم موقع عشوائي في النافذة
-        if element is None:
-            window_size = driver.get_window_size()
-            start_x = random.randint(0, window_size['width'])
-            start_y = random.randint(0, window_size['height'])
-        else:
-            # التمرير إلى العنصر
-            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element)
-            time.sleep(0.3)
-            
-            # الحصول على موقع العنصر
-            loc = element.location
-            size = element.size
-            start_x = loc['x'] + size['width']//2
-            start_y = loc['y'] + size['height']//2
-        
-        # تحريك الماوس إلى الموقع الأولي بسرعة
-        actions.move_by_offset(start_x, start_y).perform()
-        time.sleep(0.2)
-        
-        # حركات متعرجة بسرعات متفاوتة
-        for i in range(random.randint(3, 6)):
-            # حركة بسرعة متغيرة مع تسارع
-            x_offset = random.randint(-30, 30)
-            y_offset = random.randint(-30, 30)
-            
-            # تغيير السرعة خلال الحركة
-            actions.move_by_offset(x_offset//3, y_offset//3).pause(0.05)
-            actions.move_by_offset(x_offset//2, y_offset//2).pause(0.05)
-            actions.move_by_offset(x_offset, y_offset).pause(0.1)
-            
-            # تذبذب في نهاية الحركة
-            for j in range(random.randint(1, 3)):
-                actions.move_by_offset(random.randint(-3, 3), random.randint(-3, 3)).pause(0.05)
-        
-        # حركة نهائية سريعة
-        actions.move_by_offset(random.randint(-15, 15), random.randint(-15, 15)).pause(0.1)
-        
-        # نقر عشوائي (40% احتمال)
-        if random.random() > 0.6:
-            actions.click().pause(0.3)
-            print("🖱️ تم محاكاة حركات ماوس مع نقر")
-        else:
-            print("🖱️ تم محاكاة حركات ماوس")
-        
-        actions.perform()
-        return True
-        
-    except Exception as e:
-        print(f"⚠️ خطأ في محاكاة حركات الماوس البشرية: {str(e)}")
-        return False
+  <blockquote>“التعلم هو المفتاح الذي يفتح الأبواب أمام المستقبل.”</blockquote>
 
-# دالة محاكاة اللمسات البشرية
-def simulate_human_touches(driver, num_touches=3):
-    try:
-        # الحصول على أبعاد الشاشة
-        window_size = driver.get_window_size()
-        width = window_size['width']
-        height = window_size['height']
-        
-        # تحديد المنطقة الآمنة (70% من منتصف الشاشة)
-        safe_area = {
-            'min_x': int(width * 0.15),
-            'max_x': int(width * 0.85),
-            'min_y': int(height * 0.15),
-            'max_y': int(height * 0.85)
-        }
-        
-        for i in range(num_touches):
-            # توليد إحداثيات عشوائية ضمن المنطقة الآمنة
-            x = random.randint(safe_area['min_x'], safe_area['max_x'])
-            y = random.randint(safe_area['min_y'], safe_area['max_y'])
-            
-            # حركة لمسة بشرية مع تذبذب
-            for j in range(3):
-                offset_x = random.randint(-5, 5)
-                offset_y = random.randint(-5, 5)
-                driver.execute_script(f"""
-                    var elem = document.elementFromPoint({x + offset_x}, {y + offset_y});
-                    if (elem) {{
-                        var event = new MouseEvent('mousemove', {{
-                            'view': window,
-                            'bubbles': true,
-                            'cancelable': true,
-                            'clientX': {x + offset_x},
-                            'clientY': {y + offset_y}
-                        }});
-                        elem.dispatchEvent(event);
-                    }}
-                """)
-                time.sleep(0.05)
-            
-            # استخدام JavaScript للنقر
-            driver.execute_script(f"""
-                var elem = document.elementFromPoint({x}, {y});
-                if (elem) {{
-                    var event = new MouseEvent('click', {{
-                        'view': window,
-                        'bubbles': true,
-                        'cancelable': true
-                    }});
-                    elem.dispatchEvent(event);
-                }}
-            """)
-            
-            print(f"👆 لمسة #{i+1}: في ({x},{y})")
-            time.sleep(random.uniform(0.8, 1.8))
-            
-        print(f"✅ تم تنفيذ {num_touches} لمسات بشرية بنجاح")
-        return True
-        
-    except Exception as e:
-        print(f"⚠️ خطأ في محاكاة اللمس البشري: {str(e)}")
-        return False
-
-# دالة لتحديد نوع الجهاز من User Agent
-def detect_device_type(user_agent):
-    if 'iPhone' in user_agent:
-        return 'iphone'
-    elif 'Android' in user_agent or 'Mobile' in user_agent:
-        return 'mobile'
-    else:
-        return 'desktop'
-
-# دالة متقدمة للكشف عن الإعلانات (تم تحديثها)
-def detect_and_interact_with_ads(driver):
-    """اكتشاف الإعلانات والتفاعل معها باستخدام تقنيات متقدمة"""
-    # تعريف محددات الإعلان بشكل صحيح في بداية الدالة
-    ad_selectors = [
-        "div[id*='ad']", 
-        "div[class*='ad']",
-        "img[id*='ad']",
-        "img[class*='ad']",
-        "div[data-ad]",
-        "div.ad-container",
-        "a[href*='doubleclick']",
-        "a[href*='googleadservices']"
-    ]
-    
-    try:
-        # الانتظار لتحميل الإعلانات (30 ثانية للاحتياط)
-        print("⏳ جار الانتظار لتحميل الإعلانات (30 ثانية)...")
-        time.sleep(30)
-        
-        # البحث عن إعلانات في الإطارات
-        frames = driver.find_elements(By.TAG_NAME, "iframe")
-        print(f"🔎 تم العثور على {len(frames)} إطارات")
-        
-        for frame in frames:
-            try:
-                driver.switch_to.frame(frame)
-                # البحث عن عناصر الإعلان الشائعة
-                for selector in ad_selectors:
-                    try:
-                        ads = driver.find_elements(By.CSS_SELECTOR, selector)
-                        if ads:
-                            ad = random.choice(ads)
-                            print(f"🟢 تم العثور على إعلان داخل إطار: {selector}")
-                            
-                            # التمرير إلى الإعلان
-                            driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ad)
-                            time.sleep(1)
-                            
-                            # محاكاة حركة ماوس بشرية قبل النقر
-                            simulate_human_mouse_movements(driver, ad)
-                            time.sleep(0.5)
-                            
-                            # النقر على الإعلان
-                            ad.click()
-                            print("✅ تم النقر على الإعلان!")
-                            
-                            # البقاء في صفحة الإعلان
-                            ad_duration = random.randint(8, 20)
-                            print(f"⏱️ البقاء في صفحة الإعلان لمدة {ad_duration} ثانية")
-                            time.sleep(ad_duration)
-                            
-                            # العودة إلى الصفحة الأصلية
-                            driver.switch_to.default_content()
-                            return True
-                    except:
-                        continue
-                driver.switch_to.default_content()
-            except:
-                driver.switch_to.default_content()
-                continue
-        
-        # البحث في الصفحة الرئيسية إذا لم يتم العثور في الإطارات
-        print("🔍 البحث عن إعلانات في الصفحة الرئيسية...")
-        for selector in ad_selectors:
-            try:
-                ads = driver.find_elements(By.CSS_SELECTOR, selector)
-                if ads:
-                    ad = random.choice(ads)
-                    print(f"🟢 تم العثور على إعلان في الصفحة الرئيسية: {selector}")
-                    
-                    # التمرير إلى الإعلان
-                    driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", ad)
-                    time.sleep(1)
-                    
-                    # محاكاة حركة ماوس بشرية قبل النقر
-                    simulate_human_mouse_movements(driver, ad)
-                    time.sleep(0.5)
-                    
-                    # النقر على الإعلان
-                    ad.click()
-                    print("✅ تم النقر على الإعلان!")
-                    
-                    # البقاء في صفحة الإعلان
-                    ad_duration = random.randint(8, 20)
-                    print(f"⏱️ البقاء في صفحة الإعلان لمدة {ad_duration} ثانية")
-                    time.sleep(ad_duration)
-                    
-                    return True
-            except:
-                continue
-        
-        print("⏭️ لم يتم العثور على إعلانات")
-        return False
-        
-    except Exception as e:
-        print(f"⚠️ خطأ في الكشف عن الإعلانات: {str(e)}")
-        return False
-
-# دالة لحقن جافاسكريبت مخصصة حسب الجهاز
-def inject_stealth_script(driver, device_type):
-    """حقن سكريبت تخفي مخصص حسب نوع الجهاز"""
-    # إعدادات اللغة العشوائية (أمريكية أساساً)
-    languages = ['en-US', 'en-GB', 'es-US', 'fr-CA']
-    random_language = random.choice(languages)
-    
-    # إعدادات حسب نوع الجهاز
-    if device_type == 'iphone':
-        screen_width = 390
-        screen_height = 844
-        platform = 'iPhone'
-        user_agent = f"Mozilla/5.0 (iPhone; CPU iPhone OS {random.randint(15, 16)}_{random.randint(0, 5)} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/{random.randint(15, 16)}.0 Mobile/15E148 Safari/604.1"
-    elif device_type == 'mobile':
-        screen_width = 360
-        screen_height = 740
-        platform = 'Android'
-        user_agent = f"Mozilla/5.0 (Linux; Android {random.randint(10, 12)}; SM-G9{random.randint(70, 99)} Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90, 100)}.0.4430.210 Mobile Safari/537.36"
-    else:  # desktop
-        screen_width = 1366
-        screen_height = 768
-        platform = 'Win32'
-        user_agent = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90, 100)}.0.4389.114 Safari/537.36"
-    
-    stealth_script = f"""
-    // تغيير خصائص المتصفح لتجنب الكشف
-    Object.defineProperty(navigator, 'webdriver', {{
-        get: () => undefined,
-        configurable: true
-    }});
-
-    // تغيير إصدار المتصفح
-    Object.defineProperty(navigator, 'appVersion', {{
-        get: () => '{user_agent}',
-        configurable: true
-    }});
-
-    // تغيير لغة المتصفح
-    Object.defineProperty(navigator, 'languages', {{
-        get: () => ['{random_language}'],
-        configurable: true
-    }});
-
-    // تغيير منصة المتصفح
-    Object.defineProperty(navigator, 'platform', {{
-        get: () => '{platform}',
-        configurable: true
-    }});
-
-    // إضافة خصائص وهمية لمتصفح Chrome
-    window.chrome = {{
-        runtime: {{}},
-        app: {{
-            isInstalled: false
-        }},
-        loadTimes: function() {{}},
-        csi: function() {{}},
-    }};
-
-    // تغيير الإعدادات الجغرافية
-    Object.defineProperty(navigator, 'geolocation', {{
-        value: {{
-            getCurrentPosition: (callback) => callback({{
-                coords: {{
-                    latitude: {random.uniform(37.0, 39.0)},
-                    longitude: {random.uniform(-122.0, -77.0)},
-                    accuracy: {random.randint(50, 150)}
-                }}
-            }})
-        }},
-        configurable: true
-    }});
-
-    // تغيير إعدادات الشاشة
-    Object.defineProperty(screen, 'width', {{ get: () => {screen_width} }});
-    Object.defineProperty(screen, 'height', {{ get: () => {screen_height} }});
-    Object.defineProperty(screen, 'colorDepth', {{ get: () => 24 }});
-
-    // تغيير وكيل المستخدم
-    Object.defineProperty(navigator, 'userAgent', {{
-        get: () => '{user_agent}',
-        configurable: true
-    }});
-
-    // إخفاء نظام التشغيل Linux
-    Object.defineProperty(navigator, 'oscpu', {{
-        get: () => 'Windows NT 10.0',
-        configurable: true
-    }});
-    
-    // إخفاء تفاصيل النظام
-    Object.defineProperty(navigator, 'hardwareConcurrency', {{
-        get: () => {random.randint(4, 8)},
-        configurable: true
-    }});
-    
-    // إخفاء تفاصيل اللوحة الأم
-    Object.defineProperty(navigator, 'platform', {{
-        get: () => 'Win32',
-        configurable: true
-    }});
-
-    // إخفاء معلومات WebGL
-    const getParameter = WebGLRenderingContext.prototype.getParameter;
-    WebGLRenderingContext.prototype.getParameter = function(parameter) {{
-        if (parameter === 37445) {{
-            return 'Google Inc. (AMD)'; // محاكاة بطاقة AMD
-        }}
-        if (parameter === 37446) {{
-            return 'ANGLE (AMD, AMD Radeon(TM) Graphics Direct3D11 vs_5_0 ps_5_0, D3D11)';
-        }}
-        return getParameter.call(this, parameter);
-    }};
-
-    console.log('✅ تم حقن سكريبت التخفي بنجاح');
-    """
-
-    driver.execute_script(stealth_script)
-    print("🔒 تم حقن سكريبت التخفي المخصص للجهاز")
-    print(f"🌐 لغة المتصفح: {random_language}")
-    print(f"📱 وكيل المستخدم: {user_agent}")
-
-# إعدادات متقدمة لإخفاء Selenium
-def get_stealth_options(user_agent, device_type):
-    options = uc.ChromeOptions()
-    options.binary_location = CHROME_BINARY_PATH
-
-    # إعدادات عامة (بدون حظر الإعلانات)
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--ignore-certificate-errors")
-    options.add_argument("--disable-infobars")
-    options.add_argument("--disable-notifications")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--allow-running-insecure-content")
-    options.add_argument("--no-default-browser-check")
-    options.add_argument("--no-first-run")
-    options.add_argument("--disable-logging")
-    options.add_argument("--log-level=3")
-    options.add_argument("--silent")
-    options.add_argument("--mute-audio")
-    options.add_argument("--no-zygote")
-    
-    # إخفاء أي إشارة إلى Linux
-    options.add_argument("--disable-linux-activation")
-    options.add_argument("--disable-os-check")
-    options.add_argument("--disable-setuid-sandbox")
-    
-    # إعدادات DNS خاصة لحل مشكلة Cloudflare
-    options.add_argument("--dns-server=1.1.1.1,1.0.0.1")  # استخدام DNS من Cloudflare
-    options.add_argument("--host-resolver-rules=MAP * 0.0.0.0 , EXCLUDE ghjs-89e.pages.dev")
-    
-    # إعدادات وكيل المستخدم
-    options.add_argument(f"--user-agent={user_agent}")
-
-    # إعدادات حجم النافذة
-    if device_type == 'mobile' or device_type == 'iphone':
-        options.add_argument("--window-size=390,844")  # حجم جهاز حديث
-    else:
-        options.add_argument("--window-size=1200,800")  # حجم معقول للشاشات
-
-    # إعدادات اللغة والمحتوى (أمريكية)
-    options.add_argument("--lang=en-US")
-    options.add_argument("--accept-lang=en-US,en;q=0.9")
-
-    # تمكين WebGL وخصائص متقدمة
-    options.add_argument("--enable-webgl")
-    options.add_argument("--enable-3d-apis")
-    options.add_argument("--enable-accelerated-2d-canvas")
-    
-    # إعدادات لمحاكاة Windows
-    options.add_argument("--disable-features=LinuxObsoleteSystem")
-    options.add_argument("--disable-backing-store-limit")
-    options.add_argument("--disable-accelerated-video-decode")
-    options.add_argument("--disable-accelerated-video-encode")
-    
-    # إعدادات التخفي الإضافية
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    
-    return options
-
-# التحقق من اتصال الإنترنت
-def check_internet_connection():
-    """التحقق من وجود اتصال بالإنترنت قبل البدء"""
-    print("🔍 التحقق من اتصال الإنترنت...")
-    try:
-        response = requests.get("https://www.google.com", timeout=10)
-        if response.status_code == 200:
-            print("✅ اتصال الإنترنت نشط")
-            return True
-    except:
-        pass
-    
-    print("❌ فشل في الاتصال بالإنترنت")
-    return False
-
-# ====================== الدالة الرئيسية مع التعديلات ======================
-
-def run_bot(bot_num, thread_num):
-    print(f"\n{'='*50}")
-    print(f"🧵 الخيط #{thread_num} | 🤖 بدء تشغيل البوت #{bot_num}")
-    print(f"{'='*50}")
-    
-    display = None
-    driver = None
-    
-    # إنشاء مجلد لحفظ لقطات الشاشة
-    screenshot_folder = f"screenshots/bot_{bot_num}"
-    os.makedirs(screenshot_folder, exist_ok=True)
-    
-    try:
-        # التحقق من اتصال الإنترنت
-        if not check_internet_connection():
-            print(f"🧵 الخيط #{thread_num} | ❌ لا يمكن المتابعة بدون اتصال بالإنترنت")
-            return False
-        
-        # إنشاء عرض افتراضي خاص بالخيط - محاكاة Windows
-        display = Display(visible=0, size=(1200, 800), backend="xvfb", use_xauth=True)
-        display.start()
-        print(f"🧵 الخيط #{thread_num} | ✅ بدأ العرض الافتراضي (مخفي)")
-        
-        # إنشاء وكيل مستخدم عشوائي
-        ua = UserAgent()
-        user_agent = ua.random
-        print(f"🧵 الخيط #{thread_num} | 🌐 User-Agent: {user_agent}")
-
-        # تحديد نوع الجهاز
-        device_type = detect_device_type(user_agent)
-        print(f"🧵 الخيط #{thread_num} | 📱 نوع الجهاز: {device_type}")
-
-        # الحصول على عنوان IP مرتبط
-        valid_ip = find_linked_ip()
-        
-        # إذا لم يتم العثور على عنوان IP صالح
-        if valid_ip is None:
-            print(f"🧵 الخيط #{thread_num} | ❌ لا يمكن المتابعة بدون عنوان IP مرتبط")
-            return False
-        
-        print(f"🧵 الخيط #{thread_num} | 🌐 استخدام عنوان IP مرتبط: {valid_ip}")
-
-        # الحصول على إعدادات المتصفح المتخفية
-        options = get_stealth_options(user_agent, device_type)
-
-        # بدء تشغيل المتصفح
-        driver = uc.Chrome(
-            options=options,
-            headless=False,
-            use_subprocess=True,
-            browser_executable_path=CHROME_BINARY_PATH,
-            driver_executable_path=CHROMEDRIVER_PATH
-        )
-        print(f"🧵 الخيط #{thread_num} | 🚀 بدأ تشغيل متصفح Chrome المتخفي")
-
-        # حقن سكريبت التخفي المخصص للجهاز
-        inject_stealth_script(driver, device_type)
-        print(f"🧵 الخيط #{thread_num} | 🔒 تم تجهيز المتصفح بالكامل")
-
-        # إضافة ترويسات مخصصة
-        driver.execute_cdp_cmd("Network.enable", {})
-        driver.execute_cdp_cmd("Network.setExtraHTTPHeaders", {
-            "headers": {
-                "Host": "ghjs-89e.pages.dev",  # إضافة ترويسة Host الصحيحة
-                "X-Forwarded-For": valid_ip,
-                "X-Real-IP": valid_ip,
-                "Client-IP": valid_ip,
-                "CF-Connecting-IP": valid_ip,
-                "Forwarded": f"for={valid_ip};proto=https",
-                "Via": f"1.1 {valid_ip}",
-                "X-Proxy-IP": valid_ip,
-                "Accept-Language": "en-US,en;q=0.9",
-                "Sec-Fetch-Dest": "document",
-                "Sec-Fetch-Mode": "navigate",
-                "Sec-Fetch-Site": "none",
-                "Sec-Fetch-User": "?1",
-                "Upgrade-Insecure-Requests": "1"
-            }
-        })
-
-        # إنشاء كوكيز واقعية باستخدام الحل الذكي
-        generate_realistic_cookies(driver)
-        
-        # زيارة الموقع الرئيسي مع إعادة المحاولة
-        main_url = "https://ghjs-89e.pages.dev"  # تم التحديث إلى الرابط الصحيح
-        max_attempts = 3
-        for attempt in range(max_attempts):
-            try:
-                print(f"🧵 الخيط #{thread_num} | 🔍 جار فتح الموقع (المحاولة {attempt+1}): {main_url}")
-                driver.get(main_url)
-                # انتظار حتى يتم تحميل الجسم مع زيادة المهلة
-                WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "body")))
-                print(f"🧵 الخيط #{thread_num} | ✅ تم تحميل الموقع بنجاح")
-                break
-            except Exception as e:
-                print(f"🧵 الخيط #{thread_num} | ⚠️ فشل في تحميل الموقع: {str(e)}")
-                if attempt < max_attempts - 1:
-                    wait_time = 10
-                    print(f"🧵 الخيط #{thread_num} | ⏱️ إعادة المحاولة بعد {wait_time} ثواني...")
-                    time.sleep(wait_time)
-                else:
-                    print(f"🧵 الخيط #{thread_num} | ❌ فشل في تحميل الموقع بعد {max_attempts} محاولات")
-                    return False
-        
-        # التقاط لقطة بعد التحميل
-        driver.save_screenshot(f'{screenshot_folder}/1_main_page_loaded.png')
-        print(f"🧵 الخيط #{thread_num} | 📸 لقطة الشاشة الرئيسية")
-        
-        # الخطوة 1: انتظار 20 ثانية لتحميل الإعلانات
-        print(f"🧵 الخيط #{thread_num} | ⏱️ انتظار 20 ثانية لتحميل المحتوى...")
-        time.sleep(20)
-        
-        # الخطوة 2: الكشف عن الإعلانات والتفاعل معها
-        print(f"🧵 الخيط #{thread_num} | 🔍 جار البحث عن الإعلانات...")
-        ad_detected = detect_and_interact_with_ads(driver)
-        
-        if ad_detected:
-            # التقاط لقطة بعد النقر على الإعلان
-            driver.save_screenshot(f'{screenshot_folder}/2_after_ad_click.png')
-            print(f"🧵 الخيط #{thread_num} | 📸 لقطة بعد النقر على الإعلان")
-        else:
-            print(f"🧵 الخيط #{thread_num} | ℹ️ لم يتم العثور على إعلانات")
-        
-        # الخطوة 3: النقر على زر "Let's go" (تم تحديثه)
-        print(f"🧵 الخيط #{thread_num} | 🔍 جاري البحث عن زر 'Let's go'")
-        button_found = False
-        
-        # محاولات متعددة للعثور على الزر
-        for attempt in range(7):  # زيادة المحاولات إلى 7
-            try:
-                # استخدام JavaScript للبحث عن الزر
-                button = driver.execute_script("""
-                    const buttons = Array.from(document.querySelectorAll('button, a, div, input[type="button"]'));
-                    const targetButtons = buttons.filter(btn => 
-                        (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase().includes('go') || 
-                        (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase().includes('start') ||
-                        (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase().includes('lets go') ||
-                        (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase().includes('begin') ||
-                        (btn.innerText || btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase().includes('play')
-                    );
-                    return targetButtons.length > 0 ? targetButtons[0] : null;
-                """)
-                
-                if button:
-                    # التقاط لقطة قبل النقر
-                    driver.save_screenshot(f'{screenshot_folder}/3_before_click_go_button.png')
-                    print(f"🧵 الخيط #{thread_num} | 📸 لقطة قبل النقر على الزر")
-                    
-                    # محاكاة حركة ماوس بشرية قبل النقر
-                    simulate_human_mouse_movements(driver, button)
-                    time.sleep(0.5)
-                    
-                    # النقر باستخدام JavaScript
-                    driver.execute_script("arguments[0].click();", button)
-                    print(f"🧵 الخيط #{thread_num} | 🖱️ تم النقر على زر 'Let's go'")
-                    button_found = True
-                    break
-                else:
-                    print(f"🧵 الخيط #{thread_num} | ⚠️ المحاولة {attempt+1}: لم يتم العثور على الزر")
-            except Exception as e:
-                print(f"🧵 الخيط #{thread_num} | ⚠️ خطأ في النقر على الزر: {str(e)}")
-            
-            time.sleep(2)
-        
-        if not button_found:
-            print(f"🧵 الخيط #{thread_num} | ⚠️ لم يتم العثور على زر 'Let's go'")
-            # التقاط لقطة للصفحة الحالية لتصحيح المشكلة
-            driver.save_screenshot(f'{screenshot_folder}/button_not_found.png')
-            print(f"🧵 الخيط #{thread_num} | 📸 تم حفظ لقطة للصفحة لفحص الزر")
-        
-        # انتظار تحميل الصفحة الجديدة
-        time.sleep(5)
-        
-        # التقاط لقطة للصفحة الجديدة
-        driver.save_screenshot(f'{screenshot_folder}/4_second_page_loaded.png')
-        print(f"🧵 الخيط #{thread_num} | 📸 لقطة الصفحة الثانية")
-        
-        # الخطوة 4: محاكاة السلوكيات في الصفحة الثانية
-        print(f"🧵 الخيط #{thread_num} | 🔍 بدء محاكاة السلوكيات في الصفحة الثانية")
-        
-        # التمرير البشري
-        for _ in range(random.randint(3, 5)):
-            scroll_amount = random.randint(300, 800)
-            scroll_time = random.uniform(0.8, 2.0)
-            driver.execute_script(f"window.scrollBy(0, {scroll_amount})")
-            time.sleep(scroll_time)
-            
-            # التمرير العكسي أحياناً
-            if random.random() > 0.7:
-                reverse_amount = random.randint(100, 300)
-                driver.execute_script(f"window.scrollBy(0, {-reverse_amount})")
-                time.sleep(scroll_time/2)
-        
-        # محاكاة حركات الماوس أو اللمسات
-        if device_type == 'desktop':
-            simulate_human_mouse_movements(driver)
-        elif device_type == 'mobile' or device_type == 'iphone':
-            simulate_human_touches(driver, random.randint(2, 3))
-        
-        # الخطوة 5: البحث عن إعلانات في الصفحة الثانية
-        print(f"🧵 الخيط #{thread_num} | 🔍 جار البحث عن إعلانات في الصفحة الثانية...")
-        detect_and_interact_with_ads(driver)
-        
-        # انتظار 10-15 ثانية بشكل طبيعي
-        wait_time = random.uniform(10, 15)
-        print(f"🧵 الخيط #{thread_num} | ⏱️ انتظار {wait_time:.1f} ثانية في الصفحة الثانية...")
-        time.sleep(wait_time)
-        
-        # التقاط لقطة نهائية
-        driver.save_screenshot(f'{screenshot_folder}/5_final_page.png')
-        print(f"🧵 الخيط #{thread_num} | 📸 لقطة نهائية")
-
-        print(f"🧵 الخيط #{thread_num} | ✅ اكتمل البوت #{bot_num} بنجاح")
-        return True
-
-    except Exception as e:
-        print(f"🧵 الخيط #{thread_num} | ❌ حدث خطأ في البوت #{bot_num}: {str(e)}")
-        try:
-            driver.save_screenshot(f'{screenshot_folder}/error.png')
-            print(f"🧵 الخيط #{thread_num} | 📸 تم حفظ لقطة شاشة للخطأ")
-        except:
-            pass
-        return False
-    finally:
-        try:
-            if driver:
-                driver.quit()
-                print(f"🧵 الخيط #{thread_num} | 🔴 تم إغلاق المتصفح")
-        except:
-            pass
-        try:
-            if display:
-                display.stop()
-                print(f"🧵 الخيط #{thread_num} | 🔴 تم إيقاف العرض الافتراضي")
-        except:
-            pass
-
-# دالة لإنشاء ملف مضغوط من اللقطات
-def create_screenshots_zip():
-    zip_filename = "screenshots.zip"
-    
-    # إنشاء ملف مضغوط جديد
-    with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        # إضافة جميع اللقطات إلى الملف المضغوط
-        for root, dirs, files in os.walk("screenshots"):
-            for file in files:
-                file_path = os.path.join(root, file)
-                zipf.write(file_path, os.path.relpath(file_path, "screenshots"))
-    
-    print(f"📦 تم إنشاء ملف مضغوط: {zip_filename}")
-    return zip_filename
-
-# ====================== تشغيل النظام الرئيسي ======================
-
-# إنشاء مجلد اللقطات الرئيسي
-os.makedirs("screenshots", exist_ok=True)
-
-# طلب عدد البوتات والخيوط من المستخدم
-num_bots = int(input("⬇️ الرجاء إدخال عدد البوتات التي تريد تشغيلها: "))
-num_threads = int(input("⬇️ الرجاء إدخال عدد الخيوط (Threads) التي تريد استخدامها: "))
-print(f"🚀 سيتم تشغيل {num_bots} بوت باستخدام {num_threads} خيط")
-
-# تشغيل البوتات في خيوط متعددة
-successful_bots = 0
-bot_counter = 1
-threads = []
-
-# توزيع البوتات على الخيوط مع الفاصل الزمني العشوائي
-print(f"\n📊 توزيع البوتات على الخيوط:")
-print(f"  - العدد الإجمالي للبوتات: {num_bots}")
-print(f"  - عدد الخيوط: {num_threads}")
-
-# قائمة لتتبع الخيوط النشطة
-active_threads = []
-
-# تشغيل الخيوط مع الفاصل الزمني
-for thread_num in range(1, num_threads + 1):
-    # تخطي الخيوط الزائدة إذا كانت البوتات أقل من الخيوط
-    if bot_counter > num_bots:
-        break
-        
-    print(f"\n🧵 بدء الخيط #{thread_num} للبوت #{bot_counter}")
-    
-    # إنشاء خيط جديد للبوت
-    t = threading.Thread(target=run_bot, args=(bot_counter, thread_num))
-    threads.append(t)
-    active_threads.append(t)
-    t.start()
-    
-    # زيادة عداد البوت
-    bot_counter += 1
-    
-    # إضافة تأخير عشوائي بين 5-12 ثواني قبل بدء الخيط التالي
-    if thread_num < num_threads and bot_counter <= num_bots:
-        delay = random.randint(5, 12)
-        print(f"⏱️ تأخير لمدة {delay} ثواني قبل بدء الخيط التالي")
-        time.sleep(delay)
-
-# متابعة تشغيل البوتات المتبقية في الخيوط الحالية
-while bot_counter <= num_bots:
-    # البحث عن خيط انتهى من عمله
-    for i, t in enumerate(active_threads):
-        if not t.is_alive():
-            # هذا الخيط انتهى، يمكن استخدامه لبوت جديد
-            thread_num = i + 1
-            print(f"\n🧵 الخيط #{thread_num} متاح الآن للبوت #{bot_counter}")
-            
-            # إنشاء خيط جديد في نفس فهرس الخيط
-            t = threading.Thread(target=run_bot, args=(bot_counter, thread_num))
-            threads.append(t)
-            active_threads[i] = t
-            t.start()
-            
-            # زيادة عداد البوت
-            bot_counter += 1
-            
-            # إضافة تأخير عشوائي بين 5-12 ثواني قبل البوت التالي
-            if bot_counter <= num_bots:
-                delay = random.randint(5, 12)
-                print(f"⏱️ تأخير لمدة {delay} ثواني قبل البوت التالي")
-                time.sleep(delay)
-            
-            break
-
-# انتظار انتهاء جميع الخيوط
-for t in threads:
-    t.join()
-
-# إنشاء ملف مضغوط للقطات الشاشة
-zip_filename = create_screenshots_zip()
-
-print("\n" + "="*60)
-print(f"✅ اكتمل تشغيل {num_bots} بوت في {num_threads} خيط")
-print("="*60)
-
-# تحميل اللقطات تلقائياً
-try:
-    from google.colab import files
-    print("\n⬇️ جار تحميل لقطات الشاشة...")
-    files.download(zip_filename)
-    print("✅ تم تحميل اللقطات بنجاح!")
-except:
-    print("\n❌ لم يتم العثور على بيئة Google Colab")
-    print(f"📁 يمكنك تنزيل اللقطات يدوياً من: {os.path.abspath(zip_filename)}")
-
-# رابط لتحميل الصور
-print("\nيمكنك استخدام هذا الكود لاحقاً لتحميل اللقطات:")
-print(f'''
-from google.colab import files
-files.download('{zip_filename}')
-''')
+  <h2>خاتمة</h2>
+  <p>التعلم الذاتي مهارة يمكن للجميع تطويرها وتحسينها، وهو طريقك لتحقيق النجاح المستدام في الحياة الشخصية والمهنية. ابدأ اليوم بوضع خطة واضحة، واستخدم الطرق التي تناسبك، ولا تتوقف عن التطور.</p>
+</body>
+</html>
